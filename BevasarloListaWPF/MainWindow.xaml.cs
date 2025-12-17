@@ -51,11 +51,18 @@ namespace BevasarloListaWPF
             termekek.Add(new Termekek("Kenyér", 1, 450, "B"));
             termekek.Add(new Termekek("Tej", 12, 400, "A"));
             termekek.Add(new Termekek("Sajt", 5, 1500, "D"));
+            dataGrid.ItemsSource = termekek;
         }
 
         private void Hozzaadas(object sender, RoutedEventArgs e)
         {
-
+            var ujtermek = new Hozzaadas();
+            if (ujtermek.ShowDialog() == true)
+            {
+                termekek.Add(ujtermek.ujtermek);
+                dataGrid.ItemsSource = termekek;
+                dataGrid.Items.Refresh();
+            }
         }
     }
 }
