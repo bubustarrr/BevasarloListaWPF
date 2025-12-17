@@ -12,7 +12,7 @@
 			<RowDefinition Height="1*"/>
 		</Grid.RowDefinitions>
 
-		<DataGrid Grid.Row="0" x:Name="dataGrid"></DataGrid>
+		<DataGrid Grid.Row="0" x:Name="dataGrid" ColumnWidth="*"></DataGrid>
 		<GroupBox Header="Termékek" Grid.Row="1" Margin="10">
 			<ScrollViewer>
 				<WrapPanel Margin="5">

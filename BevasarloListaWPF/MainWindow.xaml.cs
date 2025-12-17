@@ -14,11 +14,43 @@ namespace BevasarloListaWPF
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+
+    public class Termekek
+    {
+
+        public string TermekNev { get; set; }
+        public int Mennyiseg { get; set; }
+        public int Ar { get; set; }
+        public string Tipus { get; set; }
+        public int Osszes { get; set; }
+
+        public Termekek(string termekNev, int mennyiseg, int ar, string tipus)
+        {
+            TermekNev = termekNev;
+            Mennyiseg = mennyiseg;
+            Ar = ar;
+            Tipus = tipus;
+            Osszes = Mennyiseg * Ar;
+        }
+    }
     public partial class MainWindow : Window
     {
+        List<Termekek> termekek = new List<Termekek>();
+
+        
         public MainWindow()
         {
             InitializeComponent();
+            termekek.Add(new Termekek("Tej", 5, 450, "A"));
+            termekek.Add(new Termekek("Kenyer", 10, 350, "B"));
+            termekek.Add(new Termekek("Sajt", 2, 1200, "A"));
+            termekek.Add(new Termekek("Alma", 20, 200, "C"));
+            termekek.Add(new Termekek("Narancs", 15, 300, "C"));
+            termekek.Add(new Termekek("Hús", 3, 2500, "D"));
+            termekek.Add(new Termekek("Csokoládé", 7, 900, "B"));
+            termekek.Add(new Termekek("Kenyér", 1, 450, "B"));
+            termekek.Add(new Termekek("Tej", 12, 400, "A"));
+            termekek.Add(new Termekek("Sajt", 5, 1500, "D"));
         }
 
         private void Hozzaadas(object sender, RoutedEventArgs e)
