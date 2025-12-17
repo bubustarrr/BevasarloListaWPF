@@ -32,8 +32,17 @@ namespace BevasarloListaWPF
         }
         private void Ok(object sender, RoutedEventArgs e)
         {
-            ujtermek = new Termekek(TermekNev.Text, int.Parse(Mennyiseg.Text), int.Parse(Ar.Text), Tipus.Text);
-            DialogResult = true;
+            int mennyiseg_ = 0;
+            int ar_ = 0;
+            if (TermekNev.Text == "" || !int.TryParse(Mennyiseg.Text, out mennyiseg_) || !int.TryParse(Ar.Text, out ar_) || Tipus.SelectedItem == null)
+            {
+                MessageBox.Show("Nem megfelelő adatok a beivteli mezőkben!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            else {
+                ujtermek = new Termekek(TermekNev.Text, int.Parse(Mennyiseg.Text), int.Parse(Ar.Text), Tipus.Text);
+                DialogResult = true;
+            }
         }
     }
 }
